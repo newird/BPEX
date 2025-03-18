@@ -15,33 +15,66 @@ Bpex is tested on the following Python versions:
 Running example and benchmark:
 
 - numpy
+- Levenshtein (NEW)
 
 Development or run other programs:
 
 - clang-3.7
 
-## Examples
 
-The `examples/` directory contains an example program:
+## Usage
 
-- c.c is one of the correct example from the benchmark
-- w.c is one of the correct example from the benchmark
-- input is the testcase
-- mark is the marked alignments
-- c_symb and w_symb are complied traces from c.c and w.c
+the path of dataset is ./data/problem, and the structure is like this 
+make sure you have wrong_answer, corrent_answer and input.txt
 
-## Feedback
-
-To generate feedback, use:
-
-```bash
-python3 Bpex feedback examples/1/input examples/1/w.c examples/1/c.c --mark examples/1/mark -symb --sw examples/1/w_symb --sc examples/1/c_symb --verbose 1
+```
+correntanswer
+ 1024163167.c
+ 1024214049.c
+ 1024214679.c
+cluster
+ 1024163167
+ 1024214049
+ 1024214679
+wronganswer
+ 1024163167.c
+ 1024214049.c
+ 1024214679.c
+ 1024627607.c
+ 1024803348.c
+ 1025857746.c
+ 1025864249.c
+input.txt
 ```
 
-## Align
+The content in cluter file is like this
+the first line is wrong file and the others are correct file
+```
+wronganswer/1024163167.c
+correctanswer/1056808672.c
+correctanswer/1086907501.c
+correctanswer/1056945287.c
+correctanswer/1056808591.c
+correctanswer/1056864099.c
+correctanswer/1057156957.c
+correctanswer/1057281149.c
+correctanswer/1057281167.c
+correctanswer/1057503529.c
+correctanswer/1057943461.c
+```
 
-To perform alignment, use:
-
-```bash
-python3 Bpex align examples/1/input examples/1/w.c examples/1/c.c --mark examples/1/mark -symb --sw examples/1/w_symb --sc examples/1/c_symb --verbose 1
+then run `sh run_bpex.sh`, all done 
+The result will be present in data/problem/bpex_result/submit_id/tmp/align.txt
+the first line in accurracy 
+and the others are the result of source code alignment
+```
+0.59062873745823
+while(t--) <-> while(n--)
+while(t--) <-> while(n--)
+for(i=0;i<n;i++) <-> int N,K,temp,count=0,count1=0,count2=0,count3=0,q,c;
+for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
+for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
+for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
+for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
+for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
 ```

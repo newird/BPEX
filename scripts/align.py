@@ -91,7 +91,7 @@ class Align(object):
         js = {}
         js['time'] = self.bp_time
 
-        res = ["{0} {1}".format(alignment[0].s, alignment[1].s) for alignment in alignments if
+        res = ["{0} <-> {1}".format(alignment[0], alignment[1]) for alignment in alignments if
                isinstance(alignment[0], (STIns, BRIns))]
 
         js['alignment'] = res
@@ -617,3 +617,5 @@ class Align(object):
         '''
         if self.verbose:
             debug(msg, *args)
+
+
