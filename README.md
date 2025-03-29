@@ -21,10 +21,9 @@ Development or run other programs:
 
 - clang-3.7
 
-
 ## Usage
 
-the path of dataset is ./data/problem, and the structure is like this 
+the path of dataset is ./data/problem, and the structure is like this
 make sure you have wrong_answer, corrent_answer and input.txt
 
 ```
@@ -49,6 +48,7 @@ input.txt
 
 The content in cluter file is like this
 the first line is wrong file and the others are correct file
+
 ```
 wronganswer/1024163167.c
 correctanswer/1056808672.c
@@ -63,10 +63,11 @@ correctanswer/1057503529.c
 correctanswer/1057943461.c
 ```
 
-then run `sh run_bpex.sh`, all done 
+then run `sh run_bpex.sh`, all done
 The result will be present in data/problem/bpex_result/submit_id/tmp/align.txt
-the first line in accurracy 
+the first line in accurracy
 and the others are the result of source code alignment
+
 ```
 0.59062873745823
 while(t--) <-> while(n--)
@@ -78,3 +79,6 @@ for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
 for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
 for(i=0;i<n;i++) <-> for(int i=0;i<N;i++)
 ```
+
+统计信息：
+执行python cal.py ./data/<problemname>/bpex_result/自动统计所有信息
